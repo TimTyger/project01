@@ -11,16 +11,21 @@ class AppState extends State<App> {
 
   final barColor = const Color(0xFF120E43);
   final bgColor = const Color(0x8C3944F7);
-
+  var text = "Change My Name";
+  TextEditingController _textController = TextEditingController();
   Widget build(context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: barColor,
+      ),
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           backgroundColor: barColor,
-          child: Icon(Icons.add),
+          child: Icon(Icons.send),
           onPressed: () {
             setState(() {
               i++;
+              text = _textController.text;
             });
           },
         ),
@@ -29,61 +34,97 @@ class AppState extends State<App> {
           backgroundColor: barColor,
         ),
         body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      gradient: LinearGradient(
-                          colors: [Colors.amberAccent, barColor]),
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(blurRadius: 10, color: Colors.grey)
-                      ]),
-                  alignment: Alignment.center,
-                  child: Text('$i',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20))),
-              Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      gradient: LinearGradient(
-                          colors: [Colors.amberAccent, barColor]),
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(blurRadius: 10, color: Colors.grey)
-                      ]),
-                  alignment: Alignment.center,
-                  child: Text('$i',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20))),
-              Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      gradient: LinearGradient(
-                          colors: [Colors.amberAccent, barColor]),
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(blurRadius: 10, color: Colors.grey)
-                      ]),
-                  alignment: Alignment.center,
-                  child: Text('$i',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20))),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: SingleChildScrollView(
+              child: Card(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                gradient: LinearGradient(
+                                    colors: [Colors.amberAccent, barColor]),
+                                borderRadius: BorderRadius.circular(5),
+                                boxShadow: [
+                                  BoxShadow(blurRadius: 10, color: Colors.grey)
+                                ]),
+                            alignment: Alignment.center,
+                            child: Text('$i',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20))),
+                        Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                gradient: LinearGradient(
+                                    colors: [Colors.amberAccent, barColor]),
+                                borderRadius: BorderRadius.circular(5),
+                                boxShadow: [
+                                  BoxShadow(blurRadius: 10, color: Colors.grey)
+                                ]),
+                            alignment: Alignment.center,
+                            child: Text('$i',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20))),
+                        Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                                color: Colors.amber,
+                                gradient: LinearGradient(
+                                    colors: [Colors.amberAccent, barColor]),
+                                borderRadius: BorderRadius.circular(5),
+                                boxShadow: [
+                                  BoxShadow(blurRadius: 10, color: Colors.grey)
+                                ]),
+                            alignment: Alignment.center,
+                            child: Text('$i',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20))),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Column(
+                      children: [
+                        Image.asset(
+                          "assets/fig2.png",
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(text),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          controller: _textController,
+                          decoration: InputDecoration(
+                            hintText: text,
+                            labelText: "Image Name",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
         drawer: Drawer(
