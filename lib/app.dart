@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project01/Pages/login_page.dart';
+import 'package:project01/Utilities/constants.dart';
 import 'package:project01/drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -60,8 +61,8 @@ class AppState extends State<App> {
             IconButton(
                 icon: Icon(Icons.logout),
                 onPressed: () {
-                  Navigator.pop(context,
-                      MaterialPageRoute(builder: (context) => Login()));
+                  Constants.prefs.setBool("loggedIn", false);
+                  Navigator.pushReplacementNamed(context, Login.routeName);
                 })
           ],
         ),

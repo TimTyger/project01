@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project01/Utilities/constants.dart';
 import 'package:project01/app.dart';
 
 class Login extends StatefulWidget {
@@ -66,12 +67,14 @@ class _LoginState extends State<Login> {
                             ),
                             ElevatedButton(
                               onPressed: () {
+                                Constants.prefs.setBool("loggedIn", true);
                                 formKey.currentState.validate();
                                 // Navigator.push(
                                 //   context,
                                 //  MaterialPageRoute(
                                 //     builder: (context) => App()));
-                                Navigator.pushNamed(context, App.routeName);
+                                Navigator.pushReplacementNamed(
+                                    context, App.routeName);
                               },
                               child: Text("Sign in"),
                             ),
