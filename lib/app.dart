@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project01/Pages/login_page.dart';
 import 'package:project01/drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class App extends StatefulWidget {
+  static const String routeName = "/app";
   createState() {
     return AppState();
   }
@@ -54,6 +56,14 @@ class AppState extends State<App> {
         appBar: AppBar(
           title: Text('DAVERA'),
           backgroundColor: barColor,
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.logout),
+                onPressed: () {
+                  Navigator.pop(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                })
+          ],
         ),
         body: data != null
             ? ListView.builder(

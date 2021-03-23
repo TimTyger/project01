@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project01/app.dart';
 
 class Login extends StatefulWidget {
+  static const String routeName = "/login";
   @override
   _LoginState createState() => _LoginState();
 }
@@ -66,10 +67,11 @@ class _LoginState extends State<Login> {
                             ElevatedButton(
                               onPressed: () {
                                 formKey.currentState.validate();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => App()));
+                                // Navigator.push(
+                                //   context,
+                                //  MaterialPageRoute(
+                                //     builder: (context) => App()));
+                                Navigator.pushNamed(context, App.routeName);
                               },
                               child: Text("Sign in"),
                             ),
